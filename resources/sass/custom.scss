@@ -1,0 +1,183 @@
+// Base variables and mixins
+:root {
+    --sidebar-width: 256px;
+    --navbar-height: 56px;
+    --sidebar-bg: #ffffff;
+    --sidebar-text: #333;
+    --transition-speed: 0.3s;
+}
+
+// Global Styles
+body {
+    display: flex;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+    background-color: #e3f2fd;
+}
+
+html, body {
+    width: 100%;
+}
+
+.wrapper {
+    width: 100%;
+}
+
+// Sidebar Styles
+.sidebar {
+    width: var(--sidebar-width);
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: var(--sidebar-bg);
+    color: var(--sidebar-text);
+    z-index: 1040;
+    transition: transform var(--transition-speed) ease-in-out;
+    overflow-y: auto;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+
+    // Collapsed sidebar for mobile
+    @media (max-width: 991.98px) {
+        transform: translateX(-100%);
+    }
+}
+
+// Navbar Styles
+.navbar {
+    position: fixed;
+    top: 0;
+    height: var(--navbar-height);
+    background-color: #ffffff;
+    z-index: 1030;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+
+    // Adjust for mobile
+    @media (max-width: 991.98px) {
+        left: 0;
+        width: 100%;
+    }
+}
+
+// Main Content Styles
+main {
+    height: calc(100vh - var(--navbar-height));
+    overflow-y: auto;
+    position: relative;
+    background-color: #e3f2fd;
+    transition: margin-left var(--transition-speed) ease;
+
+    // Adjust for mobile
+    @media (max-width: 991.98px) {
+        margin-left: 0;
+        width: 100%;
+    }
+}
+
+// Responsive Adjustments
+@media (max-width: 991.98px) {
+    body {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        order: 2;
+    }
+
+    .navbar {
+        order: 1;
+    }
+
+    main {
+        order: 3;
+    }
+}
+
+// increment and decrement button
+icon-shape {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.icon-sm {
+    width: 2rem;
+    height: 2rem;
+    
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    appearance: textfield;
+    -moz-appearance: textfield;
+}
+
+.increment-decrement-onclick {
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #FFF;
+    border-radius: 6px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.increment-decrement-onclick .btn {
+    width: 28px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: #f9f9f9;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.increment-decrement-onclick .btn:hover {
+    background: #f1f1f1;
+}
+
+.increment-decrement-onclick .num {
+    width: 40px;
+    height: 100%;
+    border: none;
+    justify-content: center;
+    text-align: center;
+    outline: none;
+    font-size: 14px;
+}
+
+//progression bar
+.step-circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #fff;
+    border: 2px solid #007bff;
+    // line-height: 30px;
+    // font-weight: bold;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    cursor: pointer; /* Added cursor pointer */
+  }
+
+.step-success {
+    background-color: #28a745;
+    border-color: #28a745;
+  }
